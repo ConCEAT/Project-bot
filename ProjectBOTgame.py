@@ -5,7 +5,6 @@ import textwrap
 def Machine(num_range, num_drawn):
     while True:
         input_players = raw_input("Type a number: ").strip()
-        os.system("cls")
         if input_players.lower() == "/imcunt":
             print "Game > You, loser"
             break
@@ -27,6 +26,7 @@ def Machine(num_range, num_drawn):
             except ValueError:
                 print textwrap.fill ("%s is not a integer! "
                 "Gimmi integers, blyat!" % input_players, width = 57)
+                print 'Fatal error'
 
 def Draw(num_range):
     num_drawn = randint(1,num_range)
@@ -40,20 +40,16 @@ def Startup():
             num_range = int(raw_input("How many numbers you wanna" 
             " guess of? ").strip())
         except:
-            os.system("cls")
             print "There is an intiger needed!"
             continue
         if num_range < 1:
-            os.system("cls")
             print "Positive integer needed. Try once again."
             continue
         else:
-            os.system("cls")
             break
     return num_range
     
 def Main():
-    os.system("cls")
     print "Welcome to the game, player!"
     num_range = Startup()
     Draw(num_range)
@@ -62,7 +58,6 @@ def Main():
 "in the same range type /redraw or /d. If you wanna change range "
 "of numbers type /rerange or /r. If you wanna leave type /quit "
 "or /q.", width = 57)).strip().lower()
-        os.system("cls")
         if choose in ("/redraw", "/d"):
             Draw(num_range)
         elif choose in ("/rerange", "/r"):
