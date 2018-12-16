@@ -5,7 +5,7 @@ import textwrap
 def Machine(num_range, num_drawn):
     while True:
         input_players = raw_input("Type a number: ").strip()
-        if input_players.lower() == "/imcunt":
+        if input_players.lower() == "/giveup":
             print "Game > You, loser"
             break
         else:
@@ -26,12 +26,11 @@ def Machine(num_range, num_drawn):
             except ValueError:
                 print textwrap.fill ("%s is not a integer! "
                 "Gimmi integers, blyat!" % input_players, width = 57)
-                print 'Fatal error'
 
 def Draw(num_range):
     num_drawn = randint(1,num_range)
     print textwrap.fill("Your number has been drawn. "
-    "You can give up by typing /imcunt. Goodluck!!!", width=57)
+    "You can give up by typing /giveup. Goodluck!!!", width=57)
     Machine(num_range, num_drawn)
 
 def Startup():
@@ -55,9 +54,9 @@ def Main():
     Draw(num_range)
     while True:
         choose = raw_input(textwrap.fill("If you wanna play once more "
-"in the same range type /redraw or /d. If you wanna change range "
-"of numbers type /rerange or /r. If you wanna leave type /quit "
-"or /q.", width = 57)).strip().lower()
+        "in the same range type /redraw or /d. If you wanna change range "
+        "of numbers type /rerange or /r. If you wanna leave type /quit "
+        "or /q.", width = 57)).strip().lower()
         if choose in ("/redraw", "/d"):
             Draw(num_range)
         elif choose in ("/rerange", "/r"):
